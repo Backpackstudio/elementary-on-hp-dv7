@@ -4,6 +4,8 @@ I have an old HP Pavillion dv7 laptop computer, which stood out of use on the sh
 
 I'm using mostly macOS or iOS devices, so Windows wasnt an attractive alternative for me. Linux, but which one? I like Ubuntu, but not huge fan of it's dark GUI. After some digging I found Elementary OS. I decided to try. The latest version at this moment is 5.0 Juno.
 
+![HPBook with Elementary OS](wiki-images/scr-hpbook-elementary-os.jpg)
+
 Everything went almost smoothly, but I got few issues with hardware and usability etc. Luckily I was able to solve those issues, but it took a while to google. So I decided to create this documentation to store my knowledge, which might become handy for others too.
 
 ## Hardware
@@ -80,6 +82,8 @@ The post-installation is where the real fun begins.
 
 There are several various guides how to install drivers for Broadcom BCM4322 [14e4:432b] wifi adapter. But when installing Elementary OS 5.0 Juno, you can skip all these now! Elementary's AppCenter provides easy way to install those drivers.
 
+![Install NVIDIA Drivers](wiki-images/scr-driver-broadcom.jpg)
+
 Open **AppCenter** and go to **Installed** tab.
 On Installed tab should appear below the **Drivers** section item **bcmwl-kernel-source**. Just click on button at the rigt side to install it.
 
@@ -107,6 +111,8 @@ You can change settings for these devices from **System Settings** app now.
 Without proper NVIDIA drivers graphics will be sluggish and slow. Some apps event couldn't run as they require hardware acceleration.
 Luckily **NVIDIA binary driver** can be installed from **AppCenter** too from **Installed** tab **Drivers** section, whre it appears under name nvidia-nnn, where nnn is driver ID, for example on my case **nvidia-340**. For G8x, G9x and GT2xx GPUs is **nvidia-340**, but for NV4x and G7x GPUs is **nvidia-304**.
 
+![Install NVIDIA Drivers](wiki-images/scr-driver-nvidia.jpg)
+
 Just install it and reboot.
 
 If for some reason drivers are nor listed on AppCenter, these can be installed manually from Terminal:
@@ -118,17 +124,18 @@ sudo apt install git
 sudo apt install nvidia-340
 reboot
 ```
-#### Installing CUDA
-As is [NVIDIA GeForce 9600 (GTX 960M)](https://web.archive.org/web/20120326195247/https://www.geforce.com/hardware/notebook-gpus/geforce-9600m-gt/specifications) is CUDA-capable GPU (CUDA, PhysX), with compute capability 5.0, then wouldn't harm to install CUDA drivers too. But it's manual procedure and no easy way to do it.
+### Disable automated screen rotation
+On latest Ubuntu based OS an orientation changes will automatically be applied when rotating the panel/computer, ambient light will be used to change the screen brightness, and Geoclue will be able to read the compass data to show the direction in Maps. On this HP model accelerometer causes automatic screen roation even on lightest movements, so the image jumps around. To disable automated screen rotation code below shall be executed in Terminal.
 
-For first we shall [download CUDA Toolkit](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal).
-
-Then we shall run these commands on Terminal.
 ```
-sudo apt install linux-headers-$(uname -r)
-sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
-sudo apt-key add /var/cuda-repo-1.0-1/7fa2af80.pub
-sudo apt update
-sudo apt install cuda
+gsettings set org.gnome.settings-daemon.peripherals.touchscreen orientation-lock true
+gsettings set com.ubuntu.touch.system orientation-lock 'PrimaryOrientation'
+gsettings set com.ubuntu.touch.system rotation-lock true
+gsettings list-recursively | grep '\-lock' | grep true
 ```
-Read more detailed instructions on [NVIDIA homepage](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+On my case this was enough. If this still doesn't help, then an alternative is to get rid of iio-sensor-proxy.
+```
+sudo systemctl stop iio-sensor-proxy.service
+sudo systemctl disable iio-sensor-proxy.service
+sudo apt-get remove iio-sensor-proxy
+```
