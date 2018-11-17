@@ -1,6 +1,6 @@
 # Elementary OS on HP Pavillion dv7
 
-I have an old HP Pavillion dv7 laptop computer, which stood out of use on the shelf. I replaced an old HDD with SSD to make it a bit faster. For second I had to decide which OS to install on this comp.
+I have an old HP Pavillion dv7 laptop computer, which stood out of use on the shelf. I replaced an old HDD with SSD to make it a bit faster. To bring some life into this comp now, I had to decide which OS to install on it.
 
 I'm using mostly macOS or iOS devices, so Windows wasnt an attractive alternative for me. Linux, but which one? I like Ubuntu, but not huge fan of it's dark GUI. After some digging I found Elementary OS. I decided to try. The latest version at this moment is 5.0 Juno.
 
