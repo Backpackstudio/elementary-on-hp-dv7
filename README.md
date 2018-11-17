@@ -1,6 +1,6 @@
-# Elementary OS on HP Pavillion dv7
+# Elementary OS on HP Pavilion dv7
 
-I have an old HP Pavillion dv7 laptop computer, which stood out of use on the shelf. I replaced an old HDD with SSD to make it a bit faster. To bring some life into this comp now, I had to decide which OS to install on it.
+I have an old HP Pavilion dv7 laptop computer, which stood out of use on the shelf. I replaced an old HDD with SSD to make it a bit faster. To bring some life into this comp now, I had to decide which OS to install on it.
 
 I'm using mostly macOS or iOS devices, so Windows wasnt an attractive alternative for me. Linux, but which one? I like Ubuntu, but not huge fan of it's dark GUI. After some digging I found Elementary OS. I decided to try. The latest version at this moment is 5.0 Juno.
 
@@ -9,7 +9,7 @@ I'm using mostly macOS or iOS devices, so Windows wasnt an attractive alternativ
 Everything went almost smoothly, but I got few issues with hardware and usability etc. Luckily I was able to solve those issues, but it took a while to google. So I decided to create this documentation to store my knowledge, which might become handy for others too.
 
 ## Hardware
-There are plenty of various HP Pavillion dv7 models available. To avoid any confusion, I give all details about my comp, so you can check, does hardware related guides make any sense for you.
+There are plenty of various HP Pavilion dv7 models available. To avoid any confusion, I give all details about my comp, so you can check, does hardware related guides make any sense for you.
 ```
 lspci -nn
 00:00.0 Host bridge [0600]: Intel Corporation Mobile 4 Series Chipset Memory Controller Hub [8086:2a40] (rev 07)
@@ -133,7 +133,7 @@ gsettings set com.ubuntu.touch.system orientation-lock 'PrimaryOrientation'
 gsettings set com.ubuntu.touch.system rotation-lock true
 gsettings list-recursively | grep '\-lock' | grep true
 ```
-On my case this was enough. If this still doesn't help, then an alternative is to get rid of iio-sensor-proxy.
+On my case this was enough. If this still doesn't help, then an alternative is to get rid of [iio-sensor-proxy](https://github.com/hadess/iio-sensor-proxy).
 ```
 sudo systemctl stop iio-sensor-proxy.service
 sudo systemctl disable iio-sensor-proxy.service
