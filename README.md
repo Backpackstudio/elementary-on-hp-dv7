@@ -78,7 +78,7 @@ After few minutes my HP was booted into Elementary OS Live CD and I had to follo
 ## Post-Installation
 The post-installation is where the real fun begins.
 
-Lets install Google Chrome from Terminal
+Lets **install Google Chrome from Terminal**
 ```
 cd ~/Downloads
 sudo apt install fonts-liberation
@@ -86,6 +86,17 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i ./google-chrome*.deb
 sudo apt-get install -f
 google-chrome-stable_current_amd64.deb
+```
+Lets **install some good text editors**
+
+```
+sudo apt install gedit
+sudo apt autoclean
+sudo apt install -y git gconf2 gconf-service software-properties-common
+sudo add-apt-repository -y ppa:webupd8team/atom
+sudo apt update
+sudo apt install atom
+sudo apt autoremove
 ```
 
 ### Installation of Broadcom BCM4322 Wifi drivers
