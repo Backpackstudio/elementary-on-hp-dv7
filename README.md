@@ -78,6 +78,16 @@ After few minutes my HP was booted into Elementary OS Live CD and I had to follo
 ## Post-Installation
 The post-installation is where the real fun begins.
 
+Lets install Google Chrome from Terminal
+```
+cd ~/Downloads
+sudo apt install fonts-liberation
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i ./google-chrome*.deb
+sudo apt-get install -f
+google-chrome-stable_current_amd64.deb
+```
+
 ### Installation of Broadcom BCM4322 Wifi drivers
 
 There are several various guides how to install drivers for Broadcom BCM4322 [14e4:432b] wifi adapter. But when installing Elementary OS 5.0 Juno, you can skip all these now! Elementary's AppCenter provides easy way to install those drivers.
