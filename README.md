@@ -116,6 +116,8 @@ sudo apt-get install software-properties-gtk
 ```
 **Software & Updates** app provides simple GUI for installing proprietary drivers.
 
+![Additional Drivers Panel](wiki-images/scr-su-additional-drivers.jpg)
+
 ### Installation of Broadcom BCM4322 Wifi drivers
 
 There are several various guides how to install drivers for Broadcom BCM4322 [14e4:432b] wifi adapter. But when installing Elementary OS 5.0 Juno, you can skip all these now! Elementary's AppCenter provides easy way to install those drivers.
