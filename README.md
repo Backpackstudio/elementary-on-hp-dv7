@@ -107,6 +107,14 @@ gedit admin:///etc/lightdm/io.elementary.greeter.conf
 activate-numlock=true
 default-wallpaper=/usr/share/backgrounds/Morskie Oko.jpg
 ```
+**Tweaks app** and **Software & Updates** app for Elementary OS
+```
+sudo add-apt-repository ppa:philip.scott/elementary-tweaks
+sudo apt update
+sudo apt install elementary-tweaks
+sudo apt-get install software-properties-gtk 
+```
+**Software & Updates** app provides simple GUI for installing proprietary drivers.
 
 ### Installation of Broadcom BCM4322 Wifi drivers
 
