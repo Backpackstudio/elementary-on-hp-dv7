@@ -98,6 +98,15 @@ sudo apt update
 sudo apt install atom
 sudo apt autoremove
 ```
+**Fix Numlock** - make numpad active after booting
+
+**gedit admin://**<file-path> provides an easy way to open and edit files as root user.
+
+```
+gedit admin:///etc/lightdm/io.elementary.greeter.conf
+activate-numlock=true
+default-wallpaper=/usr/share/backgrounds/Morskie Oko.jpg
+```
 
 ### Installation of Broadcom BCM4322 Wifi drivers
 
@@ -152,6 +161,7 @@ On latest Ubuntu based OS an orientation changes will automatically be applied w
 gsettings set org.gnome.settings-daemon.peripherals.touchscreen orientation-lock true
 gsettings set com.ubuntu.touch.system orientation-lock 'PrimaryOrientation'
 gsettings set com.ubuntu.touch.system rotation-lock true
+gsettings set org.gnome.settings-daemon.plugins.orientation active false
 gsettings list-recursively | grep '\-lock' | grep true
 ```
 On my case this was enough. If this still doesn't help, then an alternative is to get rid of [iio-sensor-proxy](https://github.com/hadess/iio-sensor-proxy).
